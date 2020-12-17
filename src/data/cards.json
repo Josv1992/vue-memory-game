@@ -1,0 +1,17 @@
+{
+  "cards": {
+    "0" : {
+      "id": "0",
+      "name": "Charizard",
+      "url": "XY12_EN_11.png",
+      "description": ""
+    },
+    "1":
+    {
+      "id": "1",
+      "name": "Ninetales",
+      "url": "XY12_EN_15.png",
+      "description": ""
+    }
+  }
+}
