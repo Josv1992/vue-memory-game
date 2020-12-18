@@ -1,14 +1,14 @@
 import { createApp } from 'vue';
 
 import router from './router.js';
-import store from './store/index.js';
+import store from './vuex/store';
 import App from './App.vue';
+
 import BaseCard from './components/ui/BaseCard.vue';
 import BaseButton from './components/ui/BaseButton.vue';
 import BaseBadge from './components/ui/BaseBadge.vue';
 import BaseSpinner from './components/ui/BaseSpinner.vue';
 import BaseDialog from './components/ui/BaseDialog.vue';
-import BaseMemoryCard from './components/ui/BaseMemoryCard.vue';
 
 const app = createApp(App)
 
@@ -20,6 +20,7 @@ app.component('base-button', BaseButton);
 app.component('base-badge', BaseBadge);
 app.component('base-spinner', BaseSpinner);
 app.component('base-dialog', BaseDialog);
-app.component('base-memory-card', BaseMemoryCard);
 
 app.mount('#app');
+
+
