@@ -45,6 +45,7 @@ export default {
   cursor: pointer;
   position: relative;
   perspective: 800px;
+  margin-bottom: 2px;
 }
 
 .card {
@@ -64,6 +65,7 @@ export default {
   width: 100%;
   position: absolute;
   backface-visibility: hidden;
+  border-radius: 5px;
 }
 
 .card .back {

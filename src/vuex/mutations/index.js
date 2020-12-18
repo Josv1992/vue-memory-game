@@ -1,43 +1,43 @@
 export default {
-  reset(st, newState) {
-    st.leftMatched = newState.leftMatched
-    st.highestSpeed = newState.highestSpeed
-    st.status = newState.status
-    st.cards = newState.cards
-    st.timePassed = newState.timePassed
+  reset(state, newState) {
+    state.leftMatched = newState.leftMatched;
+    state.highestSpeed = newState.highestSpeed;
+    state.status = newState.status;
+    state.cards = newState.cards;
+    state.timePassed = newState.timePassed;
   },
 
-  updateStatus(st, newStatus) {
-    st.status = newStatus
+  updateStatus(state, newStatus) {
+    state.status = newStatus;
   },
 
-  decreaseMatch(st) {
-    st.leftMatched--
+  decreaseMatch(state) {
+    state.leftMatched--;
   },
 
-  flip(st, card) {
-    var c = st.cards.find(cc => cc === card)
-    c.flipped = !c.flipped
+  flip(state, card) {
+    let c = state.cards.find(cc => cc === card);
+    c.flipped = !c.flipped;
   },
 
-  flips(st, cards) {
-    st.cards
+  flips(state, cards) {
+    state.cards
       .filter(cc => cards.indexOf(cc) >= 0)
       .forEach(cc => {
-        cc.flipped = !cc.flipped
+        cc.flipped = !cc.flipped;
       })
   },
 
-  counting(st) {
-    st.timePassed++
+  counting(state) {
+    state.timePassed++;
   },
 
-  updateHighestSpeed(st) {
+  updateHighestSpeed(state) {
     if (!localStorage.getItem('highestSpeed')) {
-      return localStorage.setItem('highestSpeed', st.timePassed)
+      return localStorage.setItem('highestSpeed', state.timePassed);
     }
-    if (localStorage.getItem('highestSpeed') > st.timePassed) {
-      return localStorage.setItem('highestSpeed', st.timePassed)
+    if (localStorage.getItem('highestSpeed') > state.timePassed) {
+      return localStorage.setItem('highestSpeed', state.timePassed);
     }
   }
 }

@@ -31,13 +31,15 @@ export default {
 .game-panel {
   width: 1000px;
   height: 800px;
-  border: 4px solid #bdbdbd;
   border-radius: 15px;
   background-color: #faf8ef;
-  padding: 10px;
   margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 @media screen and (max-width: 450px) {

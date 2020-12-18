@@ -18,21 +18,54 @@ export default {
 
 <style>
 .status-bar {
+  background-color: #3987b4;
   width: 100%;
-  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 15px 15px 0px 0px;
+}
+.score {
+  width: 220px;
+  height: 100px;
+  padding-top: 10px;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
 }
 .infokey {
   font-size: 19px;
   font-weight: bold;
   display: block;
-  width: 100%;
   text-align: center;
 }
 h2 {
-  color: #fff;
   text-align: center;
+}
+
+@media screen and (max-width: 450px) {
+  .board {
+    width: 105px;
+  }
+  span {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .board {
+    width: 95px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .board {
+    width: 90px;
+  }
+  span {
+    font-size: 15px;
+  }
 }
 </style>

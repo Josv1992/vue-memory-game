@@ -6,20 +6,20 @@ const cardNames = ['chansey', 'charizard', 'gyarados', 'machamp', 'nidoking', 'p
 let timerId
 
 const statusHandler = {
-  PLAYING: function({ commit }) {
+  PLAYING: ({ commit }) => {
     timerId = setInterval(function() {
       commit('counting')
     }, 1000)
   },
 
-  PASS: function({ commit }) {
+  PASS: ({ commit }) => {
     clearInterval(timerId)
     commit('updateHighestSpeed')
   }
 }
 
 export default {
-  reset: function({ commit }) {
+  reset: ({ commit }) => {
     commit('reset', {
       leftMatched: 8,
       highestSpeed: localStorage.getItem('highestSpeed') || 9999,
@@ -34,15 +34,15 @@ export default {
     statusHandler[status] && statusHandler[status](context)
   },
 
-  flipCard: function({ commit }, card) {
+  flipCard: ({ commit }, card) => {
     commit('flip', card)
   },
 
-  flipCards: function({ commit }, cards) {
+  flipCards: ({ commit }, cards) => {
     commit('flips', cards)
   },
 
-  match: function({ commit }) {
+  match: ({ commit }) => {
     commit('decreaseMatch')
   }
 }

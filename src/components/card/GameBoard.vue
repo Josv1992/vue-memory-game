@@ -1,19 +1,20 @@
 <template>
-  <div class="chessboard">
-    <memory-card
-      v-for="(card, index) of cards"
-      :key="index"
-      :option="card"
-      @flipped="onFlipped"
-    ></memory-card>
+  <div class="gameboard">
+    <ul v-for="(chunk, CIndex) of chunkedCards" :key="chunk">
+      <memory-card
+        v-for="(card, index) of chunkedCards[CIndex]"
+        :key="index"
+        :option="card"
+        @flipped="onFlipped"
+      ></memory-card>
+    </ul>
   </div>
 </template>
 
 <script>
-import MemoryCard from "./Card";
-
+import MemoryCard from "./MemoryCard";
 import { mapActions, mapGetters } from "vuex";
-
+import chunk from "chunk";
 import { STATUS } from "../../vuex/store/statusEnum";
 
 export default {
@@ -26,6 +27,9 @@ export default {
 
   computed: {
     ...mapGetters(["leftMatched", "cards", "status"]),
+    chunkedCards() {
+      return chunk(this.cards, 4);
+    },
   },
 
   methods: {
@@ -53,13 +57,9 @@ export default {
 </script>
 
 <style scoped>
-.chessboard {
-  margin-top: 20px;
+.gameboard {
   width: 100%;
-  background-color: #fff;
   height: 630px;
-  border-radius: 4px;
-  padding: 10px 5px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
