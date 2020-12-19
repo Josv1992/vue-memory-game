@@ -26,9 +26,9 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["leftMatched", "cards", "status"]),
+    ...mapGetters(["leftMatched", "cards", "status", "chunkSize"]),
     chunkedCards() {
-      return chunk(this.cards, 4);
+      return chunk(this.cards, this.chunkSize);
     },
   },
 
@@ -50,7 +50,7 @@ export default {
       this.lastCard = null;
       setTimeout(() => {
         this.flipCards([lastCard, e]);
-      }, 1000);
+      }, 500);
     },
   },
 };
@@ -72,13 +72,13 @@ export default {
 }
 
 @media screen and (max-width: 450px) {
-  .chessboard {
+  .gameboard {
     height: 480px;
     padding: 10px 0px;
   }
 }
 @media screen and (max-width: 370px) {
-  .chessboard {
+  .gameboard {
     height: 450px;
   }
 }

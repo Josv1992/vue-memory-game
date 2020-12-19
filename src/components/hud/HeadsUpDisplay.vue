@@ -2,17 +2,19 @@
   <div class="status-bar">
     <match-info></match-info>
     <game-timer></game-timer>
+    <game-status></game-status>
     <score-board></score-board>
   </div>
 </template>
 
 <script>
+import GameStatus from "./GameStatus.vue";
 import GameTimer from "./GameTimer.vue";
 import MatchInfo from "./MatchInfo";
 import ScoreBoard from "./ScoreBoard";
 
 export default {
-  components: { MatchInfo, ScoreBoard, GameTimer },
+  components: { MatchInfo, ScoreBoard, GameTimer, GameStatus },
 };
 </script>
 

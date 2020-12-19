@@ -2,20 +2,18 @@
   <div class="game-panel">
     <heads-up-display></heads-up-display>
     <game-board></game-board>
-    <game-status></game-status>
   </div>
 </template>
 
 <script>
 import HeadsUpDisplay from "./hud/HeadsUpDisplay";
 import GameBoard from "./card/GameBoard";
-import GameStatus from "./footer/GameStatus";
 
 import { mapActions } from "vuex";
 import { STATUS } from "../vuex/store/statusEnum";
 
 export default {
-  components: { HeadsUpDisplay, GameBoard, GameStatus },
+  components: { HeadsUpDisplay, GameBoard },
   created() {
     this.updateStatus(STATUS.READY);
     this.reset();
@@ -30,7 +28,6 @@ export default {
 <style scoped>
 .game-panel {
   width: 1000px;
-  height: 800px;
   border-radius: 15px;
   background-color: #faf8ef;
   margin: 0 auto;

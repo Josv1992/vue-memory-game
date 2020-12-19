@@ -8,13 +8,18 @@
 </template>
 
 <script>
-import TheHeader from './components/layout/TheHeader.vue';
+import TheHeader from "./components/layout/TheHeader.vue";
 
 export default {
   components: {
-    TheHeader
-  }  
-}
+    TheHeader,
+  },
+  watch: {
+    $route(to, _from) {
+      document.title = to.meta.title || "Vue page";
+    },
+  },
+};
 </script>
 
 <style>

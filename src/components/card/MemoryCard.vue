@@ -39,8 +39,6 @@ export default {
 
 <style scoped>
 .container {
-  width: 100px;
-  height: 140px;
   margin-right: 3px;
   cursor: pointer;
   position: relative;
@@ -49,9 +47,9 @@ export default {
 }
 
 .card {
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
+  width: 100px;
+  height: 140px;
+  transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 
@@ -61,8 +59,6 @@ export default {
 
 .card img {
   display: block;
-  height: 100%;
-  width: 100%;
   position: absolute;
   backface-visibility: hidden;
   border-radius: 5px;

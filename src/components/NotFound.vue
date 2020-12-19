@@ -9,3 +9,12 @@
     </base-card>
   </section>
 </template>
+
+<style scoped>
+h2 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+</style>

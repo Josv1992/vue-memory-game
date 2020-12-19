@@ -1,8 +1,10 @@
 <template>
-  <div class="status-footer">
-    <span v-if="status === READY">Ready</span>
-    <span v-if="status === PLAYING">Playing</span>
-    <a v-if="status === PASS" href @click.prevent.stop="reset">Play again</a>
+  <div class="score">
+    <span class="infokey" v-if="status === READY">Ready</span>
+    <span class="infokey" v-if="status === PLAYING">Playing</span>
+    <a class="infokey" v-if="status === PASS" href @click.prevent.stop="reset"
+      >Play again</a
+    >
   </div>
 </template>
 
