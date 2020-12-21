@@ -9,12 +9,11 @@
 </template>
 
 <script>
-// v-if="status === PASS"
 import HeadsUpDisplay from "./gamehud/HeadsUpDisplay";
 import GameBoard from "./card/GameBoard";
 
 import { mapActions } from "vuex";
-import { STATUS } from "../vuex/store/statusEnum";
+import { STATUS } from "../store/statusEnum";
 
 export default {
   components: { HeadsUpDisplay, GameBoard },

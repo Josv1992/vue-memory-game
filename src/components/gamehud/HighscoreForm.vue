@@ -55,8 +55,6 @@ export default {
         score: this.timePassed,
       };
 
-      console.log(formData);
-
       this.$emit("save-data", formData);
     },
   },

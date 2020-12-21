@@ -1,8 +1,8 @@
 import { createStore } from 'vuex';
 
-import getters from '../getters'
-import actions from '../actions'
-import mutations from '../mutations'
+import getters from './getters'
+import actions from './actions'
+import mutations from './mutations'
 
 const store = createStore({
   state() {
@@ -12,7 +12,8 @@ const store = createStore({
       status: '',
       cards: [],
       timePassed: 0,
-      chunkSize: 1
+      chunkSize: 1,
+      highScores: []
     }
   },
   actions,

@@ -28,7 +28,7 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   created() {
     this.loadHighScores();
-    console.log(this.highScores);
+    this.sortHighscoresNew();
   },
   updated() {},
   computed: {
@@ -37,17 +37,31 @@ export default {
 
   methods: {
     ...mapActions(["fetchHighscores"]),
-    async loadHighScores(refresh = false) {
+    async loadHighScores() {
       this.isLoading = true;
       try {
-        await this.$store.dispatch("fetchHighscores", {
-          forceRefresh: refresh,
-        });
+        await this.fetchHighscores();
       } catch (error) {
         this.error = error.message || "Something went wrong!";
       }
       this.isLoading = false;
     },
+    sortHighscoresNew() {
+      console.log("nope");
+    },
+    // sortHighscores(b, a) {
+    //   console.log("lekker sorteren");
+    //   const nameA = a.score;
+    //   const nameB = b.score;
+
+    //   let comparison = 0;
+    //   if (nameA > nameB) {
+    //     comparison = 1;
+    //   } else if (nameA < nameB) {
+    //     comparison = -1;
+    //   }
+    //   return comparison;
+    // },
   },
 };
 </script>
@@ -105,7 +119,7 @@ table th {
 }
 table thead tr {
   height: 60px;
-  background: #36304a;
+  background: #0074b8;
   color: white;
 }
 table tbody tr {

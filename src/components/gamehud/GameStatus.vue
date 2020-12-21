@@ -26,7 +26,7 @@
 // TODO: Calculate score instead of showing seconds
 import { mapActions, mapGetters } from "vuex";
 
-import { STATUS } from "../../vuex/store/statusEnum";
+import { STATUS } from "../../store/statusEnum";
 import HighscoreForm from "./HighscoreForm.vue";
 
 export default {
@@ -40,11 +40,10 @@ export default {
   },
 
   methods: {
-    ...mapActions(["reset"]),
+    ...mapActions(["reset", "submitHighscore"]),
     saveData(data) {
-      this.$store.dispatch("submitHighscore", data);
+      this.submitHighscore(data);
     },
-    // TODO: met zo'n mapaction ding voor elkaar krijgen
   },
 };
 </script>

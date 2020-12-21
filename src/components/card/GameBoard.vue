@@ -15,7 +15,7 @@
 import MemoryCard from "./MemoryCard";
 import { mapActions, mapGetters } from "vuex";
 import chunk from "chunk";
-import { STATUS } from "../../vuex/store/statusEnum";
+import { STATUS } from "../../store/statusEnum";
 
 export default {
   components: { MemoryCard },

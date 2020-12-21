@@ -8,7 +8,7 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 
-import { STATUS } from "../../vuex/store/statusEnum";
+import { STATUS } from "../../store/statusEnum";
 
 export default {
   data() {

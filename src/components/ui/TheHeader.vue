@@ -37,7 +37,8 @@ header a {
 a:active,
 a:hover,
 a.router-link-active {
-  border: 1px solid #2e4aca;
+  background-color: #227eb4;
+  border: 1px solid #0b68a7;
 }
 
 h1 {

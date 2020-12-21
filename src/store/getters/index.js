@@ -4,5 +4,6 @@ export default {
   timePassed: state => state.timePassed,
   cards: state => state.cards,
   status: state => state.status,
-  chunkSize: state => state.chunkSize
+  chunkSize: state => state.chunkSize,
+  highScores: state => state.highScores
 }
