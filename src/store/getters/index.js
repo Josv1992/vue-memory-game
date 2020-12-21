@@ -5,5 +5,8 @@ export default {
   cards: state => state.cards,
   status: state => state.status,
   chunkSize: state => state.chunkSize,
-  highScores: state => state.highScores
+  highScores: state => state.highScores,
+  maxTimeBonus: state => state.maxTimeBonus,
+  totalMistakes: state => state.totalMistakes,
+  mistakesPerCard: state => state.mistakesPerCard
 }

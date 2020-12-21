@@ -21,7 +21,7 @@ export default {
   components: { MemoryCard },
   data() {
     return {
-      lastCard: null,
+      firstCard: null,
     };
   },
 
@@ -33,23 +33,37 @@ export default {
   },
 
   methods: {
-    ...mapActions(["updateStatus", "match", "flipCards", "reset"]),
+    ...mapActions(["updateStatus", "match", "flipCards", "reset", "mistake"]),
     onFlipped(e) {
       if (this.status === STATUS.READY) {
         this.updateStatus(STATUS.PLAYING);
       }
-      if (!this.lastCard) {
-        return (this.lastCard = e);
+      if (!this.firstCard) {
+        return (this.firstCard = e);
       }
-      if (this.lastCard !== e && this.lastCard.cardName === e.cardName) {
-        this.lastCard = null;
+      if (
+        this.firstCard.flippedMultipleTimes &&
+        !e.flippedMultipleTimes &&
+        this.firstCard !== e &&
+        this.firstCard.cardName !== e.cardName
+      ) {
+        this.mistake([this.firstCard.cardName]);
+      } else if (
+        (this.firstCard.flippedMultipleTimes || e.flippedMultipleTimes) &&
+        this.firstCard !== e &&
+        this.firstCard.cardName !== e.cardName
+      ) {
+        this.mistake([this.firstCard.cardName, e.cardName]);
+      }
+      if (this.firstCard !== e && this.firstCard.cardName === e.cardName) {
+        this.firstCard = null;
         this.match();
         return this.leftMatched || this.updateStatus(STATUS.PASS);
       }
-      const lastCard = this.lastCard;
-      this.lastCard = null;
+      const firstCard = this.firstCard;
+      this.firstCard = null;
       setTimeout(() => {
-        this.flipCards([lastCard, e]);
+        this.flipCards([firstCard, e]);
       }, 500);
     },
   },

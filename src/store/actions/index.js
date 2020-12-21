@@ -7,7 +7,7 @@ let timerId
 
 const statusHandler = {
   PLAYING: ({ commit }) => {
-    timerId = setInterval(function() {
+    timerId = setInterval(function () {
       commit('counting')
     }, 1000)
   },
@@ -24,18 +24,26 @@ export default {
       leftMatched: 8,
       highestSpeed: localStorage.getItem('highestSpeed') || 9999,
       status: STATUS.READY,
-      cards: shuffle(cardNames.concat(cardNames)).map(name => ({ flipped: false, cardName: name })),
-      timePassed: 0
+      cards: shuffle(cardNames.concat(cardNames)).map(name => ({
+        flipped: false, cardName: name, wasFlippedAtLeastOnce: false,
+        flippedMultipleTimes: false,
+      })),
+      timePassed: 0,
+      totalMistakes: 0,
+      mistakesPerCard: []
     })
   },
 
-  shuffleCards: ({commit}) => {
+  shuffleCards: ({ commit }) => {
     commit('shuffleCards', {
-      cards: shuffle(cardNames.concat(cardNames)).map(name => ({ flipped: false, cardName: name }))
+      cards: shuffle(cardNames.concat(cardNames)).map(name => ({
+        flipped: false, cardName: name, wasFlippedAtLeastOnce: false,
+        flippedMultipleTimes: false,
+      }))
     })
   },
 
-  updateStatus: function(context, status) {
+  updateStatus: function (context, status) {
     context.commit('updateStatus', status)
     statusHandler[status] && statusHandler[status](context)
   },
@@ -51,6 +59,11 @@ export default {
   match: ({ commit }) => {
     commit('decreaseMatch')
   },
+
+  mistake: ({ commit }, cards) => {
+    commit('addMistake', cards)
+  },
+
   async submitHighscore(context, data) {
     const playerData = {
       name: data.name,
@@ -65,13 +78,9 @@ export default {
       }
     );
 
-    if (response.ok) {
-      console.log('OK');
-    }
-
     if (!response.ok) {
-      // error ...
-      console.log('Error');
+      // TODO: error message
+      console.log('Error submitting score');
     }
 
     context.commit('setHighscores', playerData);
@@ -96,7 +105,7 @@ export default {
       };
       requests.push(request);
     }
-    requests.sort((b, a) => a.score.toString().localeCompare(b.score.toString(), undefined, {'numeric': true}));
+    requests.sort((b, a) => a.score.toString().localeCompare(b.score.toString(), undefined, { 'numeric': true }));
     context.commit('setHighscores', requests);
   }
 }

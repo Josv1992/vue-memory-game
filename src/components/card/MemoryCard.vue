@@ -19,6 +19,8 @@ export default {
         return {
           flipped: false,
           cardName: "",
+          wasFlippedAtLeastOnce: false,
+          flippedMultipleTimes: false,
         };
       },
     },

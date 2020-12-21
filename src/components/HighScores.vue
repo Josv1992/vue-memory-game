@@ -1,24 +1,22 @@
 <template>
-  <section>
-    <base-card class="">
-      <h2>High Scores</h2>
-      <table class="table100">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="(score, i) in highScores" :key="i">
-            <th scope="row">{{ i + 1 }}</th>
-            <td>{{ score.name }}</td>
-            <td>{{ score.score }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </base-card>
+  <section class="highscores">
+    <h2>High Scores</h2>
+    <table class="table100">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(score, i) in highScores" :key="i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ score.name }}</td>
+          <td>{{ score.score }}</td>
+        </tr>
+      </tbody>
+    </table>
   </section>
 </template>
 
@@ -28,9 +26,8 @@ import { mapActions, mapGetters } from "vuex";
 export default {
   created() {
     this.loadHighScores();
-    this.sortHighscoresNew();
   },
-  updated() {},
+
   computed: {
     ...mapGetters(["highScores", "status"]),
   },
@@ -46,22 +43,6 @@ export default {
       }
       this.isLoading = false;
     },
-    sortHighscoresNew() {
-      console.log("nope");
-    },
-    // sortHighscores(b, a) {
-    //   console.log("lekker sorteren");
-    //   const nameA = a.score;
-    //   const nameB = b.score;
-
-    //   let comparison = 0;
-    //   if (nameA > nameB) {
-    //     comparison = 1;
-    //   } else if (nameA < nameB) {
-    //     comparison = -1;
-    //   }
-    //   return comparison;
-    // },
   },
 };
 </script>
@@ -69,6 +50,7 @@ export default {
 <style scoped>
 h2 {
   text-align: center;
+  margin-bottom: 10px;
 }
 h3 {
   text-align: center;
@@ -78,6 +60,10 @@ h3 {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+}
+
+.highscores {
+  margin-top: 10px;
 }
 
 .limiter {
@@ -100,15 +86,16 @@ h3 {
 }
 
 table {
+  width: 40rem;
   border-spacing: 1;
   border-collapse: collapse;
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  width: 100%;
   margin: 0 auto;
   margin-top: 5px;
   position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 table * {
   position: relative;
@@ -211,13 +198,12 @@ tbody tr:hover {
     margin-bottom: 0;
   }
   table tbody tr td:before {
-    /* font-family: OpenSans-Regular; */
     font-size: 14px;
     color: #999999;
     line-height: 1.2;
     font-weight: unset;
     position: absolute;
-    width: 40%;
+    width: 100%;
     left: 30px;
     top: 0;
   }

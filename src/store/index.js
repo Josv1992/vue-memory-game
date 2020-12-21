@@ -13,7 +13,10 @@ const store = createStore({
       cards: [],
       timePassed: 0,
       chunkSize: 1,
-      highScores: []
+      highScores: [],
+      maxTimeBonus: 180,
+      totalMistakes: 0,
+      mistakesPerCard: []
     }
   },
   actions,

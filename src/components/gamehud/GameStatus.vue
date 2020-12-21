@@ -2,8 +2,11 @@
   <teleport to="body">
     <base-dialog title="Game Completed!" :show="status === PASS" @close="reset">
       <p>Congratulations, you completed the game!</p>
-      <p v-if="timePassed === 1">You completed the game in {{ timePassed }} second.</p>
-      <p v-else>You completed the game in {{ timePassed }} seconds.</p>
+      <p>Time taken: {{ timePassed }} seconds</p>
+      <p>Mistakes made: {{ totalMistakes }}</p>
+      <p>Mistake penalty: {{ calculateMistakePenalty() }}</p>
+      <p>Number of cards in game: {{ cards.length }}</p>
+      <p>You scored {{ calculateScore() }} points!</p>
       <highscore-form @save-data="saveData"></highscore-form>
     </base-dialog>
   </teleport>
@@ -36,13 +39,47 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["status", "timePassed"]),
+    ...mapGetters([
+      "status",
+      "timePassed",
+      "maxTimeBonus",
+      "cards",
+      "totalMistakes",
+      "mistakesPerCard",
+    ]),
   },
 
   methods: {
     ...mapActions(["reset", "submitHighscore"]),
     saveData(data) {
+      data.score = this.calculateScore();
       this.submitHighscore(data);
+    },
+    calculateScore() {
+      let score = 0;
+      score += this.calculateTimeBonus();
+      score += this.cards.length * 2;
+      score -= this.calculateMistakePenalty();
+      if (score < 0) {
+        score = 0;
+      }
+      return score;
+    },
+    calculateMistakePenalty() {
+      let mistakePenalty = 0;
+      for (const mistake of this.mistakesPerCard) {
+        mistakePenalty += 1 * (mistake.number * 2.5);
+      }
+      return mistakePenalty.toFixed();
+    },
+    calculateTimeBonus() {
+      let timeBonus = this.maxTimeBonus - this.timePassed;
+      if (timeBonus > 0) {
+        timeBonus = timeBonus * 3;
+      } else {
+        timeBonus = 0;
+      }
+      return timeBonus;
     },
   },
 };
