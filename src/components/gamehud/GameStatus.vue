@@ -10,7 +10,7 @@
       <highscore-form @save-data="saveData"></highscore-form>
     </base-dialog>
   </teleport>
-  <div class="score">
+  <!-- <div class="score">
     <span class="status-text" v-if="status === READY">Ready</span>
     <span class="status-text" v-if="status === PLAYING">Playing</span>
     <span class="status-text">
@@ -22,7 +22,7 @@
         Reset
       </base-button>
     </span>
-  </div>
+  </div> -->
 </template>
 
 <script>

@@ -7,6 +7,7 @@ export default {
     state.timePassed = newState.timePassed;
     state.totalMistakes = newState.totalMistakes;
     state.mistakesPerCard = newState.mistakesPerCard;
+    state.flippedCardList = newState.flippedCardList;
   },
 
   updateStatus(state, newStatus) {
@@ -40,7 +41,6 @@ export default {
 
   addMistake(state, payload) {
     state.totalMistakes++;
-    console.log(payload);
     payload.forEach(key => {
       if (state.mistakesPerCard.find(({ name }) => name === key)) {
         for (const card of state.mistakesPerCard) {
@@ -55,6 +55,12 @@ export default {
         });
       }
     });
+  },
+
+  addToFlipped(state, payload) {
+    if(!state.flippedCardList.includes(payload)) {
+      state.flippedCardList.push(payload);
+    }
   },
 
   updateHighestSpeed(state) {

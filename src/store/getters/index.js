@@ -8,5 +8,6 @@ export default {
   highScores: state => state.highScores,
   maxTimeBonus: state => state.maxTimeBonus,
   totalMistakes: state => state.totalMistakes,
-  mistakesPerCard: state => state.mistakesPerCard
+  mistakesPerCard: state => state.mistakesPerCard,
+  flippedCardList: state => state.flippedCardList
 }

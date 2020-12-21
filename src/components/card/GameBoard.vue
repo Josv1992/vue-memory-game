@@ -26,14 +26,21 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["leftMatched", "cards", "status", "chunkSize"]),
+    ...mapGetters(["leftMatched", "cards", "status", "chunkSize", "flippedCardList"]),
     chunkedCards() {
       return chunk(this.cards, this.chunkSize);
     },
   },
 
   methods: {
-    ...mapActions(["updateStatus", "match", "flipCards", "reset", "mistake"]),
+    ...mapActions([
+      "updateStatus",
+      "match",
+      "flipCards",
+      "reset",
+      "mistake",
+      "addToFlipped",
+    ]),
     onFlipped(e) {
       if (this.status === STATUS.READY) {
         this.updateStatus(STATUS.PLAYING);
@@ -41,7 +48,15 @@ export default {
       if (!this.firstCard) {
         return (this.firstCard = e);
       }
+      this.addToFlipped(e.cardName);
       if (
+        this.cardNameFlippedBefore(this.firstCard) &&
+        !this.cardNameFlippedBefore(e) &&
+        this.firstCard !== e &&
+        this.firstCard.cardName !== e.cardName
+      ) {
+        this.mistake([this.firstCard.cardName]);
+      } else if (
         this.firstCard.flippedMultipleTimes &&
         !e.flippedMultipleTimes &&
         this.firstCard !== e &&
@@ -65,6 +80,12 @@ export default {
       setTimeout(() => {
         this.flipCards([firstCard, e]);
       }, 500);
+    },
+    cardNameFlippedBefore(e) {
+      if (this.flippedCardList.includes(e.cardName)) {
+        return true;
+      }
+      return false;
     },
   },
 };

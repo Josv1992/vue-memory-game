@@ -30,7 +30,8 @@ export default {
       })),
       timePassed: 0,
       totalMistakes: 0,
-      mistakesPerCard: []
+      mistakesPerCard: [],
+      flippedCardList: []
     })
   },
 
@@ -62,6 +63,10 @@ export default {
 
   mistake: ({ commit }, cards) => {
     commit('addMistake', cards)
+  },
+
+  addToFlipped: ({ commit}, card) => {
+    commit('addToFlipped', card)
   },
 
   async submitHighscore(context, data) {

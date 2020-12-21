@@ -16,7 +16,8 @@ const store = createStore({
       highScores: [],
       maxTimeBonus: 180,
       totalMistakes: 0,
-      mistakesPerCard: []
+      mistakesPerCard: [],
+      flippedCardList: []
     }
   },
   actions,

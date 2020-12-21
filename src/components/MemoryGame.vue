@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="game-panel">
-      <base-button @click="completeGame">Complete Game</base-button>
+      <!-- <base-button @click="completeGame">Complete Game</base-button> -->
       <heads-up-display></heads-up-display>
       <game-board></game-board>
     </div>
