@@ -1,12 +1,16 @@
 <template>
-  <div class="game-panel">
-    <heads-up-display></heads-up-display>
-    <game-board></game-board>
+  <div>
+    <div class="game-panel">
+      <base-button @click="completeGame">Complete Game</base-button>
+      <heads-up-display></heads-up-display>
+      <game-board></game-board>
+    </div>
   </div>
 </template>
 
 <script>
-import HeadsUpDisplay from "./hud/HeadsUpDisplay";
+// v-if="status === PASS"
+import HeadsUpDisplay from "./gamehud/HeadsUpDisplay";
 import GameBoard from "./card/GameBoard";
 
 import { mapActions } from "vuex";
@@ -21,6 +25,9 @@ export default {
 
   methods: {
     ...mapActions(["updateStatus", "reset"]),
+    completeGame() {
+      this.updateStatus(STATUS.PASS);
+    },
   },
 };
 </script>

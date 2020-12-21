@@ -42,6 +42,7 @@ export default {
   font-weight: bold;
   display: block;
   text-align: center;
+  align-content: center;
 }
 h2 {
   text-align: center;

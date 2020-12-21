@@ -39,5 +39,8 @@ export default {
     if (localStorage.getItem('highestSpeed') > state.timePassed) {
       return localStorage.setItem('highestSpeed', state.timePassed);
     }
+  },
+  setHighscores(state, payload) {
+    state.highScores = payload;
   }
 }

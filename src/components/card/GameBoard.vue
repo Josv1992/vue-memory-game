@@ -33,7 +33,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["updateStatus", "match", "flipCards"]),
+    ...mapActions(["updateStatus", "match", "flipCards", "reset"]),
     onFlipped(e) {
       if (this.status === STATUS.READY) {
         this.updateStatus(STATUS.PLAYING);
@@ -59,7 +59,6 @@ export default {
 <style scoped>
 .gameboard {
   width: 100%;
-  height: 630px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

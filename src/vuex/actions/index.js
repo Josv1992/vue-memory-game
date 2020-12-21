@@ -35,7 +35,7 @@ export default {
     })
   },
 
-  updateStatus: function(context, status) {
+  updateStatus: (context, status) => {
     context.commit('updateStatus', status)
     statusHandler[status] && statusHandler[status](context)
   },
@@ -50,5 +50,68 @@ export default {
 
   match: ({ commit }) => {
     commit('decreaseMatch')
-  }
+  },
+  async submitHighscore(context, data) {
+    const playerData = {
+      name: data.name,
+      score: data.score
+    };
+
+    const response = await fetch(
+      `https://vue-memory-4e32d-default-rtdb.europe-west1.firebasedatabase.app/highScores.json`,
+      {
+        method: 'POST',
+        body: JSON.stringify(playerData)
+      }
+    );
+
+    if (response.ok) {
+      console.log('OK');
+    }
+
+    if (!response.ok) {
+      // error ...
+      console.log('Error');
+    }
+
+    context.commit('setHighscores', playerData);
+  },
+
+  compare(a, b) {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+  
+    let comparison = 0;
+    if (nameA > nameB) {
+      comparison = 1;
+    } else if (nameA < nameB) {
+      comparison = -1;
+    }
+    console.log(comparison);
+    return comparison;
+  },
+
+  async fetchHighscores(context) {
+    const response = await fetch(`https://vue-memory-4e32d-default-rtdb.europe-west1.firebasedatabase.app/highScores.json`);
+    const responseData = await response.json();
+
+    if (!response.ok) {
+      const error = new Error(responseData.message || 'Failed to fetch requests.');
+      throw error;
+    }
+
+    const requests = [];
+
+    for (const key in responseData) {
+      const request = {
+        id: key,
+        name: responseData[key].name,
+        score: responseData[key].score
+      };
+      requests.push(request);
+    }
+    requests.sort(this.compare);
+
+    context.commit('setHighscores', requests);
+  }  
 }
