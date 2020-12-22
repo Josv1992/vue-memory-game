@@ -1,7 +1,7 @@
 <template>
   <div class="score">
     <span class="infokey">Matches left:</span>
-    <h2>{{ leftMatched }}</h2>
+    <h2>{{ leftToMatch }}</h2>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters(["leftMatched"]),
+    ...mapGetters(["leftToMatch"]),
   },
 };
 </script>

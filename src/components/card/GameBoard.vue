@@ -26,7 +26,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["leftMatched", "cards", "status", "chunkSize", "flippedCardList"]),
+    ...mapGetters(["leftToMatch", "cards", "status", "chunkSize", "flippedCardList"]),
     chunkedCards() {
       return chunk(this.cards, this.chunkSize);
     },
@@ -73,7 +73,7 @@ export default {
       if (this.firstCard !== e && this.firstCard.cardName === e.cardName) {
         this.firstCard = null;
         this.match();
-        return this.leftMatched || this.updateStatus(STATUS.FINISHED);
+        return this.leftToMatch || this.updateStatus(STATUS.FINISHED);
       }
       const firstCard = this.firstCard;
       this.firstCard = null;

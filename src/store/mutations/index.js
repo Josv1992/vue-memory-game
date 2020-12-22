@@ -1,6 +1,6 @@
 export default {
   reset(state, newState) {
-    state.leftMatched = newState.leftMatched;
+    state.leftToMatch = newState.leftToMatch;
     state.highestSpeed = newState.highestSpeed;
     state.status = newState.status;
     state.cards = newState.cards;
@@ -15,7 +15,7 @@ export default {
   },
 
   decreaseMatch(state) {
-    state.leftMatched--;
+    state.leftToMatch--;
   },
 
   flip(state, card) {

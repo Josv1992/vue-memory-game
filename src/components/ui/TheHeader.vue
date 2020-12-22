@@ -16,11 +16,13 @@
   </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../assets/css/colorPalette.scss";
+
 header {
+  background-color: $primary-color;
   width: 100%;
   height: 5rem;
-  background-color: #0074b8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +39,7 @@ header a {
 a:active,
 a:hover,
 a.router-link-active {
-  background-color: #227eb4;
+  background-color: $primary-button-color;
   border: 1px solid #0b68a7;
 }
 

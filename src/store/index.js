@@ -7,7 +7,7 @@ import mutations from './mutations'
 const store = createStore({
   state() {
     return {
-      leftMatched: 0,
+      leftToMatch: 0,
       highestSpeed: 0,
       status: '',
       cards: [],

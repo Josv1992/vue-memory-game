@@ -1,5 +1,5 @@
 export default {
-  leftMatched: state => state.leftMatched,
+  leftToMatch: state => state.leftToMatch,
   highestSpeed: state => state.highestSpeed,
   timePassed: state => state.timePassed,
   cards: state => state.cards,

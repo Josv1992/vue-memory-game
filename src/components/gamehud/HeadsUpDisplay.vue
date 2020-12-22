@@ -18,9 +18,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "../../assets/css/colorPalette.scss";
+
 .status-bar {
-  background-color: #3987b4;
+  background-color: $secondary-color;
   width: 100%;
   display: flex;
   justify-content: space-between;

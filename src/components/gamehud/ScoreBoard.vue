@@ -1,6 +1,6 @@
 <template>
   <div class="score">
-    <span class="infokey">Highest Speed:</span>
+    <span class="infokey">Your record:</span>
     <h2>{{ highestSpeed }} seconds</h2>
   </div>
 </template>

@@ -21,7 +21,7 @@ const statusHandler = {
 export default {
   reset: ({ commit }) => {
     commit('reset', {
-      leftMatched: 8,
+      leftToMatch: 8,
       highestSpeed: localStorage.getItem('highestSpeed') || 9999,
       status: STATUS.READY,
       cards: shuffle(cardNames.concat(cardNames)).map(name => ({
