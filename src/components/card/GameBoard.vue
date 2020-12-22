@@ -93,7 +93,6 @@ export default {
 
 <style scoped>
 .gameboard {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -106,9 +105,23 @@ export default {
   background: -moz-linear-gradient(45deg, #f3f1e8, #e7e5d9);
   background: linear-gradient(45deg, #f3f1e8, #e7e5d9);
 }
+ul {
+  padding-left: 0px;
+}
+@media screen and (min-width: 700px) {
+  ul {
+    margin: 20px;
+  }
+}
 
-.container:nth-child(4n) {
-  margin-right: 0px;
+@media screen and (max-width: 700px) {
+  .gameboard {
+    padding: 0px 0px;
+    width: 100%;
+  }
+  ul {
+    padding-left: 0px;
+  }
 }
 
 @media screen and (max-width: 450px) {

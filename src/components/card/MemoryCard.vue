@@ -90,19 +90,32 @@ export default {
   transform: rotateY(180deg);
 }
 
+@media screen and (max-width: 700px) {
+  .container {
+    width: 70px;
+    height: 98px;
+    margin-right: 1px;
+    margin: 10px;
+  }
+  .card {
+    width: 70px;
+    height: 98px;
+  }
+  .card img {
+    height: inherit;
+    width: inherit;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .container {
     width: 92px;
     height: 111px;
     margin-right: 1px;
   }
-}
-
-@media screen and (max-width: 380px) {
-  .container {
-    width: 85px;
-    height: 102px;
-    margin-right: 1px;
+  .card {
+    width: 70px;
+    height: 84px;
   }
 }
 
@@ -111,6 +124,10 @@ export default {
     width: 70px;
     height: 84px;
     margin-right: 1px;
+  }
+  .card {
+    width: 70px;
+    height: 84px;
   }
 }
 </style>

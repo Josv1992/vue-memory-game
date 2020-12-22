@@ -2,7 +2,7 @@
   <header>
     <nav>
       <h1>
-        <router-link to="/">Memory Card Game test</router-link>
+        <router-link to="/">Memory Card Game</router-link>
       </h1>
       <ul>
         <li>

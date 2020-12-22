@@ -55,6 +55,18 @@ export default {
 *:focus {
   outline: 0;
 }
+@media screen and (max-width: 1000px) {
+  .game-panel {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .game-panel {
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+  }
+}
 
 @media screen and (max-width: 450px) {
   .game-panel {
