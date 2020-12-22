@@ -76,7 +76,7 @@ export default {
     };
 
     const response = await fetch(
-      `https://vue-memory-4e32d-default-rtdb.europe-west1.firebasedatabase.app/highScores.json`,
+      `${process.env.VUE_APP_FIREBASE_URL}`,
       {
         method: 'POST',
         body: JSON.stringify(playerData)
@@ -92,7 +92,7 @@ export default {
   },
 
   async fetchHighscores(context) {
-    const response = await fetch(`https://vue-memory-4e32d-default-rtdb.europe-west1.firebasedatabase.app/highScores.json`);
+    const response = await fetch(`${process.env.VUE_APP_FIREBASE_URL}`);
     const responseData = await response.json();
 
     if (!response.ok) {
