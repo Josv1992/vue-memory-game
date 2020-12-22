@@ -1,5 +1,5 @@
 <template>
-  <div class="container" @click="flip">
+  <div class="container" :style="randomRotation" @click="flip">
     <div class="card" :class="{ flipped: option.flipped }">
       <img :src="require(`../../../img/${option.cardName}.png`)" class="front" />
       <img class="back" src="../../../img/backside.png" />
@@ -26,6 +26,16 @@ export default {
     },
   },
 
+  computed: {
+    randomRotation() {
+      const style = `
+        transform: rotateZ(${Math.random(-4, 4) * 3}deg);
+        top: ${Math.random(-4, 4) * 12}px;
+      `;
+      return style;
+    },
+  },
+
   methods: {
     ...mapActions(["flipCard"]),
     flip() {
@@ -46,6 +56,7 @@ export default {
   position: relative;
   perspective: 800px;
   margin-bottom: 2px;
+  transform: rotateZ(5deg);
 }
 
 .card {
