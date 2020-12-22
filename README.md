@@ -1,3 +1,3 @@
 "# vue-memory" 
 
-run npm install
+run npm install"# vue-memory-game" 
