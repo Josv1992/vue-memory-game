@@ -101,10 +101,10 @@ export default {
   align-content: space-around;
 
   background: #f1eede;
-  background: -webkit-linear-gradient(45deg, #f1eede, #e6e2ce);
-  background: -o-linear-gradient(45deg, #f1eede, #e6e2ce);
-  background: -moz-linear-gradient(45deg, #f1eede, #e6e2ce);
-  background: linear-gradient(45deg, #f1eede, #e6e2ce);
+  background: -webkit-linear-gradient(45deg, #f3f1e8, #e7e5d9);
+  background: -o-linear-gradient(45deg, #f3f1e8, #e7e5d9);
+  background: -moz-linear-gradient(45deg, #f3f1e8, #e7e5d9);
+  background: linear-gradient(45deg, #f3f1e8, #e7e5d9);
 }
 
 .container:nth-child(4n) {

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="submitForm">
     <div class="form-control" :class="{ invalid: !nickName.isValid }">
-      <label for="nickname">nickname</label>
+      <label for="nickname">Nickname</label>
       <input
         type="text"
         id="nickname"
