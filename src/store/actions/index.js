@@ -85,7 +85,7 @@ export default {
 
     if (!response.ok) {
       // TODO: error message
-      console.log('Error submitting score');
+      // console.log('Error submitting score');
     }
 
     context.commit('setHighscores', playerData);

@@ -52,6 +52,9 @@ export default {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
+*:focus {
+  outline: 0;
+}
 
 @media screen and (max-width: 450px) {
   .game-panel {

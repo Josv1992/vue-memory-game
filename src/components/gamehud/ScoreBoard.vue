@@ -1,7 +1,9 @@
 <template>
   <div class="score">
-    <span class="infokey">Your record:</span>
-    <h2>{{ highestSpeed }} seconds</h2>
+    <span v-if="highestSpeed < 9999">
+      <span class="infokey">Your record:</span>
+      <h2>{{ highestSpeed }} seconds</h2>
+    </span>
   </div>
 </template>
 

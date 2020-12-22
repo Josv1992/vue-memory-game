@@ -1,8 +1,8 @@
 <template>
   <div class="container" :style="randomRotation" @click="flip">
     <div class="card" :class="{ flipped: option.flipped }">
-      <img :src="require(`../../../img/${option.cardName}.png`)" class="front" />
-      <img class="back" src="../../../img/backside.png" />
+      <img :src="require(`./../../../img/${option.cardName}.png`)" class="front" />
+      <img class="back" src="./../../../img/backside.png" />
     </div>
   </div>
 </template>
