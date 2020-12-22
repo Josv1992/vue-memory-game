@@ -1,6 +1,6 @@
 <template>
   <teleport to="body">
-    <base-dialog title="Game Completed!" :show="status === PASS" @close="reset">
+    <base-dialog title="Game Completed!" :show="status === FINISHED" @close="reset">
       <p>Congratulations, you completed the game!</p>
       <p>Time taken: {{ timePassed }} seconds</p>
       <p>Mistakes made: {{ totalMistakes }}</p>
@@ -10,19 +10,6 @@
       <highscore-form @save-data="saveData"></highscore-form>
     </base-dialog>
   </teleport>
-  <!-- <div class="score">
-    <span class="status-text" v-if="status === READY">Ready</span>
-    <span class="status-text" v-if="status === PLAYING">Playing</span>
-    <span class="status-text">
-      <base-button
-        class="reset-button"
-        v-if="status === PASS"
-        @click.prevent.stop="reset"
-      >
-        Reset
-      </base-button>
-    </span>
-  </div> -->
 </template>
 
 <script>

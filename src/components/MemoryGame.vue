@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div tabindex="-1" @keyup.c="doSomething">
     <div class="game-panel">
-      <!-- <base-button @click="completeGame">Complete Game</base-button> -->
+      <base-button v-if="cheatEnabled" @click="completeGame">Complete Game</base-button>
       <heads-up-display></heads-up-display>
       <game-board></game-board>
     </div>
@@ -17,6 +17,11 @@ import { STATUS } from "../store/statusEnum";
 
 export default {
   components: { HeadsUpDisplay, GameBoard },
+  data() {
+    return {
+      cheatEnabled: false,
+    };
+  },
   created() {
     this.updateStatus(STATUS.READY);
     this.reset();
@@ -25,7 +30,10 @@ export default {
   methods: {
     ...mapActions(["updateStatus", "reset"]),
     completeGame() {
-      this.updateStatus(STATUS.PASS);
+      this.updateStatus(STATUS.FINISHED);
+    },
+    doSomething() {
+      this.cheatEnabled = !this.cheatEnabled;
     },
   },
 };

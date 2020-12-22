@@ -73,7 +73,7 @@ export default {
       if (this.firstCard !== e && this.firstCard.cardName === e.cardName) {
         this.firstCard = null;
         this.match();
-        return this.leftMatched || this.updateStatus(STATUS.PASS);
+        return this.leftMatched || this.updateStatus(STATUS.FINISHED);
       }
       const firstCard = this.firstCard;
       this.firstCard = null;
@@ -99,6 +99,12 @@ export default {
   justify-content: center;
   align-items: center;
   align-content: space-around;
+
+  background: #f1eede;
+  background: -webkit-linear-gradient(45deg, #f1eede, #e6e2ce);
+  background: -o-linear-gradient(45deg, #f1eede, #e6e2ce);
+  background: -moz-linear-gradient(45deg, #f1eede, #e6e2ce);
+  background: linear-gradient(45deg, #f1eede, #e6e2ce);
 }
 
 .container:nth-child(4n) {

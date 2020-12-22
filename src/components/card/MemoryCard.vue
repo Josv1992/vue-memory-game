@@ -28,9 +28,12 @@ export default {
 
   computed: {
     randomRotation() {
+      const min = -5;
+      const max = 5;
+      const random = Math.floor(Math.random() * (max - min + 1) + min);
       const style = `
-        transform: rotateZ(${Math.random(-4, 4) * 3}deg);
-        top: ${Math.random(-4, 4) * 12}px;
+        transform: rotateZ(${random}deg);
+        top: ${random}px;
       `;
       return style;
     },

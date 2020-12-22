@@ -12,7 +12,7 @@ const statusHandler = {
     }, 1000)
   },
 
-  PASS: ({ commit }) => {
+  FINISHED: ({ commit }) => {
     clearInterval(timerId)
     commit('updateHighestSpeed')
   }
