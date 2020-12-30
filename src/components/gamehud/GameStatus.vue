@@ -13,7 +13,6 @@
 </template>
 
 <script>
-// TODO: Calculate score instead of showing seconds
 import { mapActions, mapGetters } from "vuex";
 
 import { STATUS } from "../../store/statusEnum";
