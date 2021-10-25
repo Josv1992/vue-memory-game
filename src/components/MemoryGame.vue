@@ -1,5 +1,5 @@
 <template>
-  <div tabindex="-1" @keyup.c="doSomething">
+  <div tabindex="-1" @keyup.c="enableCheats">
     <div class="game-panel">
       <base-button v-if="cheatEnabled" @click="completeGame">Complete Game</base-button>
       <heads-up-display></heads-up-display>
@@ -32,7 +32,7 @@ export default {
     completeGame() {
       this.updateStatus(STATUS.FINISHED);
     },
-    doSomething() {
+    enableCheats() {
       this.cheatEnabled = !this.cheatEnabled;
     },
   },
